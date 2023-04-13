@@ -16,6 +16,8 @@
  */
 package edu.eci.arsw.myrestaurant.restcontrollers;
 
+import edu.eci.arsw.myrestaurant.beans.impl.BasicBillCalculator;
+import edu.eci.arsw.myrestaurant.beans.impl.BillWithTaxesCalculator;
 import edu.eci.arsw.myrestaurant.model.Order;
 import edu.eci.arsw.myrestaurant.model.ProductType;
 import edu.eci.arsw.myrestaurant.model.RestaurantProduct;
@@ -44,6 +46,12 @@ public class OrdersAPIController {
 
     @Autowired
     RestaurantOrderServices restaurantOrderServices;
+
+    @Autowired
+    BasicBillCalculator basicBillCalculator;
+
+    @Autowired
+    BillWithTaxesCalculator billWithTaxesCalculator;
 
     @GetMapping ()
     public ResponseEntity<Set<Integer>> getOrders(){
